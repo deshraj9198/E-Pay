@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/spalshFragment">
+    <fragment
+        android:id="@+id/spalshFragment"
+        android:name="com.example.paymentapplication.SpalshFragment"
+        android:label="E-Pay"
+        tools:layout="@layout/fragment_spalsh" >
+        <action
+            android:id="@+id/action_spalshFragment_to_homeFragment2"
+            app:destination="@id/homeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.paymentapplication.HomeFragment"
+        android:label="HOME"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_viewBalanceFragment"
+            app:destination="@id/viewBalanceFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_homeFragment_to_sendMoneyFragment"
+            app:destination="@id/sendMoneyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewBalanceFragment"
+        android:name="com.example.paymentapplication.ViewBalanceFragment"
+        android:label="View Balance"
+        tools:layout="@layout/fragment_view_balance" />
+    <fragment
+        android:id="@+id/moneyAmountFragment"
+        android:name="com.example.paymentapplication.MoneyAmountFragment"
+        android:label="Amount"
+        tools:layout="@layout/fragment_money_amount" >
+        <argument
+            android:name="personName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_moneyAmountFragment_to_statusFragment2"
+            app:destination="@id/statusFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendMoneyFragment"
+        android:name="com.example.paymentapplication.SendMoneyFragment"
+        android:label="Send Money"
+        tools:layout="@layout/fragment_send_money" >
+        <action
+            android:id="@+id/action_sendMoneyFragment_to_moneyAmountFragment"
+            app:destination="@id/moneyAmountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/statusFragment2"
+        android:name="com.example.paymentapplication.StatusFragment"
+        android:label="Status"
+        tools:layout="@layout/fragment_status" >
+        <argument
+            android:name="personName"
+            app:argType="string" />
+        <argument
+            android:name="amount"
+            app:argType="float"
+            android:defaultValue="0.00" />
+    </fragment>
+</navigation>
